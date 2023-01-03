@@ -1,0 +1,98 @@
+{% extends 'product\main.html' %}
+{% load static %}
+{% block main %}
+<!--main profile-->
+<section class="pt-5" style="background-color: #f1f5f9;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <!-- Bg -->
+        
+        <img src="{% static 'images\profile-bg.jpg' %}" alt="" class="pt-16 rounded-top-md rounded-2" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="card rounded-0 rounded-bottom  px-4  pt-2 pb-4 ">
+        <div
+          class="d-flex align-items-end justify-content-between  ">
+          <div class="d-flex align-items-center">
+            <div class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
+              <img src="{% static 'images\istockphoto-1223671392-612x612.jpg' %}" class="avatar-xl rounded-circle border border-4 border-white"
+                alt="">
+            </div>
+            <div class="lh-1">
+              <h2 class="mb-0">{{request.user.username}}
+               
+              </h2>
+              <p class=" mb-0 d-block">{{request.user.email}}</p>
+            </div>
+          </div>
+          <div>
+            <a href="profile-edit.html" class="btn btn-primary btn-sm d-none d-md-block">Account
+              Setting</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--main profile end-->
+<!--recipe start-->
+<section class="pb-5 py-md-5" style="background-color: #f1f5f9;">
+  <div class="container">
+
+    {% for myrep in myrecipes %}
+      <a href="{% url 'editrecipe' myrep.id %}">
+    
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-12">
+            <!-- Card -->
+            <div class="card  mb-4 card-hover">
+              <a href="{% url 'editrecipe' myrep.id %}" class="card-img-top"><img src="{{myrep.recipe_image.url}}" alt=""
+                  class="card-img-top rounded-top-md"></a>
+              <!-- Card body -->
+              <div class="card-body">
+                <h3 class="h4 mb-2 text-truncate-line-2 "><a href="#" class="text-inherit">
+                    {{myrep.recipe_name}}</a>
+                </h3>
+                <!-- List inline -->
+                <ul class="mb-3  list-inline">
+                  <li class="list-inline-item"><i class="fa-regular fa-clock  me-1"></i>{{myrep.prep_time}}min
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa-solid fa-burger me-1"></i>{{myrep.category}}</li>
+                </ul>
+                <div class="lh-1">
+                  <span>
+                    <i class="fa-regular fa-star text-warning me-n1"></i>
+                    <i class="fa-regular fa-star text-warning me-n1"></i>
+                    <i class="fa-regular fa-star text-warning me-n1"></i>
+                    <i class="fa-regular fa-star text-warning me-n1"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                    
+                  </span>
+                 
+                </div>
+                <li class="list-inline-item m-2">
+                  {{myrep.Main_ingredient}}</li>
+              </div>
+              <!-- Card footer -->
+              <div class="card-footer">
+                <div class="row align-items-center g-0">
+                 <div class="btn btn-primary">Edit Recipe</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </a>
+    {% endfor %}
+  </div>
+
+</section>
+<!--recipe end-->
+    
+
+    
+    
+
+    
+{% endblock main %}
+    

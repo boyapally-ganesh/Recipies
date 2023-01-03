@@ -1,0 +1,99 @@
+
+<section class="container-fluid" style="background-color: #f1f5f9;">
+
+  <section class="py-5">
+      <div class="container">
+          <div class="text-center">
+              <form class="row justify-content-center" method="post">
+                {% csrf_token %}
+                  <div class="col-12 col-md-8">
+                    <div class="card p-3 border-1 rounded-4">
+
+                      <!-- input -->
+                      <div class="input-group mb-2 mb-md-0 ">
+                          <!-- input group -->
+                          <!-- search -->
+                          <input
+                              type="search"
+                              class="form-control  rounded-pill border-0 ps-3 form-focus-none"
+                              placeholder="Search"
+                              id="searchField"
+                           
+                           
+                          >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3  text-end d-grid">
+                      <!-- button -->
+                      <!-- <button type="submit" class="btn btn-primary rounded-pill">Search</button> -->
+                  </div>
+              </form>
+          </div>
+      </div>
+  </section>
+  <section class="">
+      <div class="container">
+          <div class="row mb-2">
+              <div class="col">
+                  <h2 class="mb-0">Recommended to you</h2>
+              </div>
+          </div>
+          <div class="position-relative" id="recipe_data">
+              <div class="row">
+  
+                {% for recipes in recipe %}
+                  <div class="col-lg-4" >
+                      <div class="card  mb-4 card-hover">
+                          <a href="{% url 'detail' recipes.id %}" class="card-img-top">
+                              <img src="{{recipes.recipe_image.url}}" alt="" class="rounded-top-md card-img-top" style="height: 200px;">
+                          </a>
+                          <!-- Card Body -->
+                          <div class="card-body">
+                              <h4 class="mb-2 text-truncate-line-2 ">
+                                  <a href="{% url 'detail' recipes.id %}" class="text-inherit">
+                                {{recipes.recipe_name}}
+                                  </a>
+                              </h4>
+                              <!-- List -->
+                              <ul class="mb-3 list-inline">
+                                  <li class="list-inline-item">
+                                    <i class="fa-regular fa-clock"></i>
+                                     {{recipes.Total_Time}}Min
+                                  <li class="list-inline-item">
+                                    <i class="fa-solid fa-plate-wheat"></i>
+                                      {{recipes.category}}
+                                  </li>
+                              </ul>
+                              <div class="lh-1">
+                                {{recipes.small_description }}
+                              </div>
+                              
+                          </div>
+                          <!-- Card Footer -->
+                          <div class="card-footer">
+                              <div class="row align-items-center g-0">
+                                 
+                                  <div class="col ms-2">
+                                      BY <span>{{recipes.user}}</span>
+                                  </div>
+                                  <div class="col-auto">
+                                      <a href="{% url 'detail' recipes.id %}" class="">
+                                         {{recipes.Published_at}}
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+              <!-- Card -->
+          </div>
+          
+      </div>
+  </div>
+  </div>
+  </section>
+</section>
+

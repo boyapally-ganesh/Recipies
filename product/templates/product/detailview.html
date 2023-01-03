@@ -1,0 +1,131 @@
+{% extends 'product\main.html' %}
+
+{% block main %}
+<!-- Content -->
+<section class="py-4 py-lg-8 pb-14">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-12 mb-2">
+                <div class="mb-4">
+                    <h1 class="fw-bold mb-2">{{detail.recipe_name}}</h1>
+                    <span class="mb-3 d-inline-block">4 min read</span>
+                </div>
+                <!-- Media -->
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">By</span>
+                        <h5 class="mb-1 ">  {{detail.user}} |</h5>
+                        <div class="ms-2 lh-1">
+                            <span class="text-primary">published on {{detail.Published_at}}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="ms-2 text-muted">Share</span>
+                        <a href="#" class="ms-2 text-muted">
+                            <i class="mdi mdi-facebook fs-4"></i>
+                        </a>
+                        <a href="#" class="ms-2 text-muted">
+                            <i class="mdi mdi-twitter fs-4"></i>
+                        </a>
+                        <a href="#" class="ms-2 text-muted ">
+                            <i class="mdi mdi-linkedin fs-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- Image -->
+            <div class="col-xl-10 col-lg-10 col-md-12 col-12 mb-6">
+                <img
+                    src="{{detail.recipe_image.url}}"
+                    alt=""
+                    class="img-fluid rounded-3 w-100 shadow"
+                    style="height: 500px;"
+                >
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-12 mb-2">
+                <!-- Descriptions -->
+                <div>
+                    <div class="mb-4">
+                        <p class="lead text-dark">
+                            {{detail.small_description}}
+                        </p>
+                        <p>
+                            {{detail.description}}
+                        </p>
+                        <p>
+                            Mauris varius ullamcorper tincidsellus egestas innisivel sollicituullam feugiate facilisis ones
+                    velleo
+                    finibus maximus nequsese sedmattis auspendisse
+                            <span class="border-bottom border-danger">duimetus ullamcorper faucibuse blandit</span>
+                            sedtincinean.
+                        </p>
+                    </div>
+                    <blockquote class="blockquote text-center ">
+                        <div class="card py-2" style="background-color: #f5f6ea;">
+                            <div class="row py-2">
+                                <div class="col-lg-4">
+                                    <h5 class="mb-2">
+                                        Bake Time
+                                    </h5>
+                                    <div class="text-dark">
+                                        <span>
+                                            {{detail.prep_time}}Min
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h5 class="mb-2">
+                                        Total Time
+                                    </h5>
+                                    <div class="text-dark">
+                                        <span>
+                                            {{detail.Total_Time}}Min
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h5 class="mb-2">
+                                        Servings
+                                    </h5>
+                                    <div class="text-dark">
+                                        <span>
+                                            {{detail.Servings}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </blockquote>
+                   
+                    <!-- List unstyled -->
+                    <div class="mb-5">
+                        <h3 class="mb-3">Ingredients</h3>
+                       {{detail.Ingredients|safe}}
+                    </div>
+                    <div class="mb-5">
+                        <h3 class="mb-3">Directions</h3>
+                        {{detail.Directions|safe}}
+                       
+                    </div>
+                    <!-- Img alignment -->
+                    <div class="mb-5">
+                        <h3 class="mb-2">Cook's Note:</h3>
+                        
+                       {{detail.Cook_note}}
+                    </div>
+                   
+                </div>
+               
+               
+            </div>
+        </div>
+    </div>
+    <!-- Container -->
+    
+</section>
+</main>
+{% endblock main %}

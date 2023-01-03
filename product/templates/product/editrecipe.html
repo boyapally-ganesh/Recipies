@@ -1,0 +1,265 @@
+{% extends 'product\main.html' %}
+
+{% block main %}
+<section class="py-4">
+    <div class="container">
+        <div class="row pb-4">
+            <div class="col-12">
+                <!-- Title -->
+                <h1 class="mb-0 h2">Edit Recipe</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Chart START -->
+                <div class="card border">
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <!-- Form START -->
+                        <form enctype="multipart/form-data" method="post">
+                            {% csrf_token %}
+                            <!-- Main form -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Recipe name</label>
+                                        <input
+                                            required
+                                            id="recipe_name"
+                                            name="recipe_name"
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Enter Recipe name.."
+                                            value="{{prod.recipe_name}}"
+                                            
+                                        >
+                                        <small></small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Recipe image</label>
+                                        <input
+                                            class="form-control"
+                                            type="file"
+                                            name="recipe_image"
+                                            id="recipe_image"
+                                            accept="image/gif, image/jpeg, image/png"
+                                            value="{{prod.recipe_image.url}}"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Preparation Time</label>
+                                        <input
+                                            class="form-control"
+                                            type="number"
+                                            name="prep_time"
+                                            id="prep_time"
+                                            value="{{prod.prep_time}}"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Total Time</label>
+                                        <input
+                                            class="form-control"
+                                            type="number"
+                                            name="Total_Time"
+                                            id="Total_Time"
+                                            value="{{prod.Total_Time}}"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Servings</label>
+                                        <input
+                                            class="form-control"
+                                            type="number"
+                                            name="Servings"
+                                            id="Servings"
+                                            value="{{prod.Servings}}"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb3">
+                                        <label class="form-label">Category</label>
+                                        <select name="category" id="id_category" class="form-control">
+                                            <option value="1">Non_veg</option>
+                                            <option value="2">veg</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Short description -->
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Short description</label>
+                                        <textarea
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Add description"
+                                            name="small_description"
+                                            id="small_description"
+                                            
+                                        >{{prod.small_description}}</textarea>
+                                    </div>
+                                </div>
+                                <!--Short description end-->
+                                <!--Description-->
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Description</label>
+                                        <textarea
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Add description"
+                                            name="description"
+                                            id="description"
+                                            
+                                            
+                                        >{{prod.description}}</textarea>
+                                    </div>
+                                </div>
+                                <!--description end-->
+                                <!-- Main toolbar -->
+                                <label for="directions mb-3">Directions</label>
+                                <div class="col-md-12">
+                                    <!-- Subject -->
+                                    <div class="col-md-12">
+                                    
+                                        <!-- Subject -->
+                                        <script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+                                        <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+                                        <div class="django-ckeditor-widget" data-field-id="id_Directions" style="display: inline-block;">
+                                            <textarea
+                                                name="Directions"
+                                                cols="40"
+                                                rows="10"
+                                                required
+                                                id="id_Directions"
+                                                data-processed="0"
+                                                data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}"
+                                                data-external-plugin-resources="[]"
+                                                data-id="id_Directions"
+                                                data-type="ckeditortype"
+                                               
+                                            >
+                                            {{prod.media}}
+                                            {{prod.Directions}}
+                                        
+                                        </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb3 mt-3">
+                                        <label for="Ingredients">Ingredients</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <!-- Subject -->
+                                        <div class="col-md-12">
+                                            <!-- Subject -->
+                                            <script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+                                            <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+                                            <div class="django-ckeditor-widget" data-field-id="id_Ingredients" style="display: inline-block;">
+                                                <textarea
+                                                    name="Ingredients"
+                                                    cols="40"
+                                                    rows="10"
+                                                    required
+                                                    id="id_Ingredients"
+                                                    data-processed="0"
+                                                    data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}"
+                                                    data-external-plugin-resources="[]"
+                                                    data-id="id_Ingredients"
+                                                    data-type="ckeditortype"
+                                                    value=""
+                                                    
+                                                >{{prod.media}}
+                                                  {{prod.Ingredients}} </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3"></div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <!-- Message -->
+                                            <div class="mb-3">
+                                                <label class="form-label">Main_ingredient</label>
+                                                <textarea
+                                                    class="form-control"
+                                                    rows="3"
+                                                    placeholder="Main_ingredient"
+                                                    name="Main_ingredient"
+                                                    id="Main_ingredient"
+                                                    value=""
+                                                >{{prod.Main_ingredient}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <!-- Message -->
+                                            <div class="mb-3">
+                                                <label class="form-label">Cook_note</label>
+                                                <textarea
+                                                    class="form-control"
+                                                    rows="3"
+                                                    placeholder="Main_ingredient"
+                                                    name="Cook_note"
+                                                    id="Cook_note"
+                                                    
+                                                >{{prod.Cook_note}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check mb-3">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    value=""
+                                                    id="postCheck"
+                                                >
+                                                <label class="form-check-label" for="postCheck">
+                                                    Make this post featured?
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Create post button -->
+                                        <div class="col-md-12 text-start">
+                                            <button class="btn btn-primary w-100" type="submit">Create post</button>
+                                        </div>
+                                    </div>
+                                    <input
+                                        type="hidden"
+                                        name="user"
+                                        id="elder"
+                                        value=""
+                                    >
+                                </form>
+                                <!-- Form END -->
+                            </div>
+                        </div>
+                        <!-- Chart END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{prod}}
+   
+        <script>
+            var name = '{{user.id}}';
+        document.getElementById('elder').value = name;
+      </script>
+            
+        {% endblock main %}

@@ -1,0 +1,205 @@
+{% extends 'product/main.html' %}
+
+{% block main %}
+<section class="py-4">
+    <div class="container">
+        <div class="row pb-4">
+            <div class="col-12">
+                <!-- Title -->
+                <h1 class="mb-0 h2">Create a post</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Chart START -->
+                <div class="card border">
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <!-- Form START -->
+                        <form enctype="multipart/form-data" method="post">
+                            {% csrf_token %}
+                            <!-- Main form -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Recipe name</label>
+                                        <input
+                                            required
+                                            id="recipe_name"
+                                            name="recipe_name"
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Enter Recipe name.."
+                                        >
+                                        <small></small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Recipe image</label>
+                                        <input
+                                            class="form-control"
+                                            type="file"
+                                            name="recipe_image"
+                                            id="recipe_image"
+                                            accept="image/gif, image/jpeg, image/png"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Preparation Time</label>
+                                        <input
+                                            class="form-control"
+                                            type="number"
+                                            name="prep_time"
+                                            id="prep_time"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Total Time</label>
+                                        <input
+                                            class="form-control"
+                                            type="number"
+                                            name="Total_Time"
+                                            id="Total_Time"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Servings</label>
+                                        <input
+                                            class="form-control"
+                                            type="number"
+                                            name="Servings"
+                                            id="Servings"
+                                        >
+                                        <small>Moving heaven divide two sea female great midst spirit</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- Post name -->
+                                    <div class="mb3">
+                                        <label class="form-label">Category</label>
+                                        <select name="category" id="id_category" class="form-control">
+                                            <option value="1">Non_veg</option>
+                                            <option value="2">veg</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Short description -->
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Short description</label>
+                                        <textarea
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Add description"
+                                            name="small_description"
+                                            id="small_description"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <!--Short description end-->
+                                <!--Description-->
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Description</label>
+                                        <textarea
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Add description"
+                                            name="description"
+                                            id="description"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <!--description end-->
+                                <!-- Main toolbar -->
+                                <label for="directions mb-3">Directions</label>
+                                <div class="col-md-12">
+                                    <!-- Subject -->
+                                    {{form.media}}
+                                     {{form.Directions}}
+                                </div>
+                                <div class="mb3 mt-3">
+                                    <label for="Ingredients">Ingredients</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- Subject -->
+                                    {{form.media}}
+                                   {{form.Ingredients}}
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3"></div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <!-- Message -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Main_ingredient</label>
+                                        <textarea
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Main_ingredient"
+                                            name="Main_ingredient"
+                                            id="Main_ingredient"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <!-- Message -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Cook_note</label>
+                                        <textarea
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Main_ingredient"
+                                            name="Cook_note"
+                                            id="Cook_note"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mb-3">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            value=""
+                                            id="postCheck"
+                                        >
+                                        <label class="form-check-label" for="postCheck">
+                                            Make this post featured?
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Create post button -->
+                                <div class="col-md-12 text-start">
+                                    <button class="btn btn-primary w-100" type="submit">Create post</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="user" id="elder" value="">
+                        </form>
+                        <!-- Form END -->
+                    </div>
+                </div>
+                <!-- Chart END -->
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+      var name = '{{user.id}}';
+  document.getElementById('elder').value = name;
+</script>
+{% endblock main %}
